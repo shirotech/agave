@@ -38,18 +38,18 @@ pub(super) const SIZE_OF_ERASURE_ENCODED_SLICE: usize =
 // signed.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ShredData {
-    common_header: ShredCommonHeader,
-    data_header: DataShredHeader,
-    payload: Payload,
+    pub common_header: ShredCommonHeader,
+    pub data_header: DataShredHeader,
+    pub payload: Payload,
 }
 
 // Layout: {common, coding} headers | erasure coded shard
 // All payload past signature is singed.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ShredCode {
-    common_header: ShredCommonHeader,
-    coding_header: CodingShredHeader,
-    payload: Payload,
+    pub common_header: ShredCommonHeader,
+    pub coding_header: CodingShredHeader,
+    pub payload: Payload,
 }
 
 impl<'a> Shred<'a> for ShredData {
